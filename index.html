@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+    <title>Pomodoro Havir</title>
+  </head>
+  <body>
+
+  <main>
+    <div class="main-row">
+      <div class="session">
+        <p>Session time</p>
+        <div class="session-menu">
+          <div class="timer-more timer-more-session"><i class="material-icons material-icons-vertical">keyboard_arrow_up</i></div>
+          <div class="session-time">25</div>
+          <div class="timer-less timer-less-session"><i class="material-icons material-icons-vertical">keyboard_arrow_down</i></div>
+        </div>
+      </div>
+      <div class="break">
+        <p>Break time</p>
+        <div class="break-menu">
+          <div class="timer-more timer-more-break"><i class="material-icons material-icons-vertical">keyboard_arrow_up</i></div>
+          <div class="break-time">5</div>
+          <div class="timer-less timer-less-break"><i class="material-icons material-icons-vertical">keyboard_arrow_down</i></div>
+        </div>
+      </div>
+    </div>
+    <div class="main-row">
+      <div class="buttons buttons-top">
+        <div class="button button-play">
+          <i class="material-icons material-icons-bigger">play_circle_outline</i>
+        </div>
+        <div class="button button-pause">
+          <i class="material-icons material-icons-bigger">pause_circle_outline</i>
+        </div>
+      </div>
+      <div class="timer">
+        <div class="timer-more timer-main"><i class="material-icons material-icons-bigger ">keyboard_arrow_left</i></div>
+        <div class="timer-time" style='font-size: 3rem'><span class='minutes'>25</span>:<span class='seconds'>00</span></div>
+        <div class="timer-less timer-main"><i class="material-icons material-icons-bigger">keyboard_arrow_right</i></div>
+      </div>
+      <div class="buttons buttons-bottom">
+      <div class="button button-stop">
+        <i class="material-icons material-icons-bigger">stop</i>
+      </div>
+      <div class="button button-replay">
+        <i class="material-icons material-icons-bigger">replay</i>
+      </div>
+    </div>
+    </div>
+    <div class="work-tab">
+      <div class="work-message">
+        <div class="work-text">WORK</div>
+        <div class="work-dots">..</div>
+        <div class="work-excla">!!!</div>
+      </div>
+      <div class="messages"></div>
+    </div>
+  </main>
+
+  <div class="link-div">
+    <input type="text" name="" value="" placeholder="It doesn't work yet, sorry!">
+    <button type="button" name="button" class='audio-button'>Ready</button>
+    <i class="material-icons material-icons-bigger absolute-icon">queue_music</i>
+  </div>
+
+  <div class="modal">
+    <div class="modal-content">
+      <h2>Pomodoro!</p>
+      <p>You've probably heard about it!</p>
+      <p>It's a learning technique, in which you're suppossed to focus on your tasks
+      for 25 minutes, and take 5 minute breakes!</p>
+      <p>This is usually the optimal session, to restrain You from procrastination,
+      but You can always change it!</p>
+      <p>You can also put your own song to play as an alarm when the time comes!</p>
+      <button type="button" name="button">Got it!</button>
+    </div>
+  </div>
+
+  <div class="confetti"></div>
+
+  <div class="break-modal">
+    <div class="break-modal-content break-modal-start">
+      <p>BREAK TIME</p>
+      <p class='break-timer'>5:00</p>
+      <button class='break-modal-button' type="button" name="button">Skip break?</button>
+    </div>
+  </div>
+
+
+
+
+
+  </body>
+  <script src="app.js" charset="utf-8"></script>
+</html>
