@@ -37,6 +37,23 @@ main {
   cursor: pointer;
 }
 
+.material-icons-vertical {
+  transition: all 0.05s;
+}
+
+.material-icons-vertical:hover{
+  text-shadow: 0 5px 2px red;
+}
+
+.time-adjust {
+  transition: all 0.05s;
+
+}
+
+.time-adjust:hover {
+  text-shadow: 5px 0 2px red;
+}
+
 .timer-main {
   line-height: 10px;
 }
@@ -185,6 +202,10 @@ main {
   backdrop-filter: blur(2px);
 }
 
+.confetti, .break-modal {
+  display: none;
+}
+
 .modal-content {
   background-color: rgba(100,100,200,0.8);
   width: 400px;
@@ -224,6 +245,8 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   backdrop-filter: blur(0);
+  background-color: rgba(0,0,0,0.0);
+  animation: confetti 6s forwards;
 }
 
 .break-modal-content {
@@ -259,9 +282,23 @@ main {
   animation: break-modal-start 0.8s cubic-bezier(.62,1.4,.79,.98) forwards;
 }
 
+.break-modal-end {
+  animation: break-modal-end 0.8s cubic-bezier(.79,.98,.62,1.4) forwards;
+}
+
+@keyframes confetti {
+  from {top: -100%}
+  to {top: 0}
+}
+
 @keyframes break-modal-start {
   from {left: -100%;}
   to {left: 0;}
+}
+
+@keyframes break-modal-end {
+  from {left: 0;}
+  to {left: -100%;}
 }
 
 button {
@@ -288,6 +325,24 @@ button:active {
 
 button:focus {
   outline: 0;
+}
+
+.button-icons {
+  transition: all 0.2s;
+  color: #ffffff;
+}
+
+.button-icons:hover {
+  transform:scale(1.2);
+  color: #ff4444;
+}
+
+.button-icons-replay {
+  transform-origin: center;
+  transition: all 0.6s;
+}
+.button-icons-replay:hover {
+  transform: rotate(-360deg);
 }
 
 .cardAway {

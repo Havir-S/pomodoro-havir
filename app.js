@@ -38,11 +38,9 @@ startWorking.addEventListener('click', function() {
     timerObject.playing = true;
     timerObject.startTimer(true);
     timerObject.start_messages(true);
-    console.log('1');
     startAnim();
     return;
   } else if (timerObject.playing == false) {
-    console.log('2');
     timerObject.startTimer(false);
     timerObject.pause = false;
     timerObject.started = true;
@@ -118,7 +116,6 @@ breakMore.addEventListener('click', function() {
   if(timerObject.break_time < 60) {
   timerObject.break_time = timerObject.break_time + 1;
   breakTime.innerHTML = timerObject.break_time;
-  breakTimer.innerHTML = timerObject.break_time  + ":00";
     }
 })
 
@@ -126,7 +123,6 @@ breakLess.addEventListener('click', function() {
   if(timerObject.break_time > 1) {
   timerObject.break_time = timerObject.break_time - 1;
   breakTime.innerHTML = timerObject.break_time;
-  breakTimer.innerHTML = timerObject.break_time  + ":00";
     }
 })
 
@@ -180,7 +176,10 @@ let timerObject = {
   countEvent: null,
   startTimer: function(flag) {
     if (flag) {
-      this.countEvent = setInterval(timerTime, 50);
+      if (!timerObject.break) {
+        timerObject.break_minutes = timerObject.break_time;
+      }
+      this.countEvent = setInterval(timerTime, 100);
     } else {
       clearInterval(this.countEvent);
     }
@@ -188,7 +187,7 @@ let timerObject = {
   breakCountEvent: null,
   startBreakTimer: function(flag) {
     if (flag) {
-      this.breakCountEvent = setInterval(timerBreak, 50);
+      this.breakCountEvent = setInterval(timerBreak, 1000);
     } else {
       clearInterval(this.breakCountEvent);
     }
@@ -262,6 +261,7 @@ let timerTime = () => {
     timerObject.start_messages(false);
     timerObject.startTimer(false);
     breakModal.style.display='block';
+    confetti.style.display = 'block';
     timerObject.current_session_time = timerObject.session_time;
     timerObject.minutes = timerObject.session_time;
     timerObject.seconds = "0" + 0;
@@ -278,6 +278,7 @@ let timerTime = () => {
 }
 
 let timerBreak = () => {
+
   if (timerObject.break_seconds > 0) {
     timerObject.break_seconds--;
       if (timerObject.break.seconds < 10) {
@@ -287,7 +288,9 @@ let timerBreak = () => {
   timerObject.break = false;
   timerObject.startBreakTimer(false);
   timerObject.break_minutes = timerObject.break_time;
+  timerObject.break_seconds = "0"+0;
   breakModal.style.display = 'none';
+  confetti.style.display = 'none';
 
 } else {
   timerObject.break_minutes--;
@@ -341,15 +344,35 @@ window.onload = function() {
 }
 
 /* BREAK TIME */
-
+// let breakContent = document.querySelector('.break-modal-content');
 
 breakButton.addEventListener('click', function() {
   timerObject.break = false;
   breakModal.style.display = "none";
-  confetti.style.display = "none";
+  confetti.style.display = 'none';
+  timerObject.startBreakTimer(false);
+  timerObject.break_minutes = timerObject.break_time;
+  timerObject.break_seconds = "0"+0;
 });
-// breakModal.style.display = "none";
-// confetti.style.display = "none";
+
+/* ARROW ADJUST CURRENT TIME */
+let moreTime = document.querySelector('.time-adjust-more')
+let lessTime = document.querySelector('.time-adjust-less')
+
+moreTime.addEventListener('click', function() {
+  if(timerObject.minutes < 60) {
+  timerObject.minutes = timerObject.minutes + 1;
+  minutes.innerHTML = timerObject.minutes;
+}
+});
+
+lessTime.addEventListener('click', function() {
+  if(timerObject.minutes > 0) {
+    timerObject.minutes = timerObject.minutes - 1;
+    minutes.innerHTML = timerObject.minutes;
+  }
+});
+
 
 /* BREAK BACKGROUND TEST */
 
