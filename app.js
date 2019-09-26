@@ -179,7 +179,7 @@ let timerObject = {
       if (!timerObject.break) {
         timerObject.break_minutes = timerObject.break_time;
       }
-      this.countEvent = setInterval(timerTime, 100);
+      this.countEvent = setInterval(timerTime, 1000);
     } else {
       clearInterval(this.countEvent);
     }
